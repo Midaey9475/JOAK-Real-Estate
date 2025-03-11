@@ -182,23 +182,24 @@ main{
 }
 /* Our Featured Apartment */
 .featuredApartment{
-    height: 100svh;
+    height: auto;
+    position: relative;
     display: flex;
     align-items: center;
     justify-content: center;
     flex: 1;
     font-family: var(--mainfont);
+    padding: 50px;
     .featuredApartmentContainer{
-        height: 70%;
-        width: 70%;
+        width: 80%;
         display: flex;
         align-items: start;
         justify-content: center;
         .featuredApartmentContainer1{
-            width: 30%;
+            width: 400px;
+            height: 450px;
             display: flex;
             justify-content: right;
-            height: 80%;
             .sampleApartmentPic{
                 width: 85%;
                 height: 90%;
@@ -230,7 +231,7 @@ main{
             flex-direction: column;
             color: #f35525;
             font-weight: 400;
-            font-size: medium;
+            font-size: small;
             padding: 0px 30px;
             h1{
                 color: black;
@@ -264,7 +265,7 @@ main{
             }
         }
         .featuredApartmentContainer3{
-            width: 30%;
+            width: fit-content;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -288,6 +289,9 @@ main{
                     column-gap: 20px;
                     border-bottom: 1px solid rgb(206, 206, 206);
                     padding: 20px;
+                    h2{
+                        /* font-size: medium; */
+                    }
                     b{
                         font-size: 12px;
                         color: silver;
@@ -773,6 +777,7 @@ footer{
     main .mainAboutText{
         width: 70%;
     }
+
     .featuredApartment .featuredApartmentContainer{
         width: 85%;
     }
