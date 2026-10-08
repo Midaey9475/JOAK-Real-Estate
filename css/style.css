@@ -143,6 +143,8 @@ nav{
     .hamburger{
         display: none;
         cursor: pointer;
+        background: none;
+        border: none;
     }
 }
 /* Banner Images */
@@ -155,7 +157,7 @@ main{
     .bannerImage{
         height: 100%;
         width: 100%;
-        background-image: url(banner-01.jpg);
+        background-image: url(../assets/images/backgrounds/banner-01.jpg);
         background-size: cover;
         position: absolute;
     }
@@ -203,7 +205,7 @@ main{
             .sampleApartmentPic{
                 width: 85%;
                 height: 90%;
-                background-image: url(featured.jpg);
+                background-image: url(../assets/images/backgrounds/featured.jpg);
                 background-size: cover;
                 position: relative;
                 .sampleApartmentLogoContainer{
@@ -289,9 +291,6 @@ main{
                     column-gap: 20px;
                     border-bottom: 1px solid rgb(206, 206, 206);
                     padding: 20px;
-                    h2{
-                        /* font-size: medium; */
-                    }
                     b{
                         font-size: 12px;
                         color: silver;
@@ -311,7 +310,7 @@ main{
     height: 150svh;
     .videoHeader{
         height: 50%;
-        background-image: url(video-bg.jpg);
+        background-image: url(../assets/images/backgrounds/video-bg.jpg);
         background-size: cover;
         z-index: -1;
         display: grid;
@@ -331,7 +330,7 @@ main{
             height: 180%;
             width: 70%;
             border-radius: 20px;
-            background-image: url(video-frame.jpg);
+            background-image: url(../assets/images/backgrounds/video-frame.jpg);
             background-size: cover;
             display: grid;
             place-items: center;
@@ -610,6 +609,7 @@ main{
         }
     }
 }
+
 .lastSection{
     height: fit-content;
     /* border: 1px solid red; */
@@ -617,7 +617,7 @@ main{
     display: grid;
     .contactBg{
         height: 80svh;
-        background-image: url(contact-bg.jpg);
+        background-image: url(../assets/images/backgrounds/contact-bg.jpg);
         background-size: cover;
         display: flex;
         flex-direction: column;
@@ -693,6 +693,9 @@ main{
         }
     }
 }
+#scheduleVisit:target{
+    outline: 3px solid #f35525;
+}
 .contactInfoSubDiv2{
     /* border: 1px solid red; */
     width: 40%;
@@ -764,7 +767,13 @@ footer{
     span{
         font-family: var(--mainfont);
         color: #fff;
+        display: flex;
+        align-items: center;
     }
+}
+.brand-logo{
+    height: 32px;
+    width: auto;
 }
 
 @media (max-width:1060px) {
@@ -1141,4 +1150,131 @@ footer{
         font-size: x-small;
         width: 70%;
     }
+}
+/* ================= Added during the clean-up ================= */
+
+/* Smooth scrolling. scroll-padding keeps section titles from hiding under the sticky nav */
+html{
+    scroll-behavior: smooth;
+    scroll-padding-top: 100px;
+}
+
+/* Small text styles that used to be written inline in the HTML */
+.sectionLabel{
+    color: #f35525;
+    font-size: 15px;
+}
+.propertyPrice h3.price{
+    color: #f0420d;
+}
+hr{
+    border: 0;
+    border-top: 1px solid #ffeee9;
+}
+
+/* Long email addresses should wrap instead of overflowing the box */
+.companyContact b{
+    overflow-wrap: anywhere;
+}
+.contactInfoSubDiv1a iframe{
+    border: 0;
+}
+
+/* ----- Mobile menu (opened by the hamburger button) ----- */
+nav .mobileMenu{
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background-color: #fff;
+    box-shadow: 0px 6px 10px rgb(219, 219, 219);
+    font-family: var(--mainfont);
+    ul{
+        list-style: none;
+    }
+    li a{
+        display: block;
+        padding: 15px 30px;
+        border-top: 1px solid rgb(235, 235, 235);
+    }
+    li a:hover{
+        color: #f35525;
+    }
+}
+nav .mobileMenu.open{
+    display: block;
+}
+/* the mobile menu is never needed on big screens */
+@media all and (min-width: 835px) {
+    nav .mobileMenu, nav .mobileMenu.open{
+        display: none;
+    }
+}
+
+/* ----- Video pop-up ----- */
+.videoModal{
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.85);
+    z-index: 100;
+    align-items: center;
+    justify-content: center;
+    .videoBox{
+        position: relative;
+        width: min(900px, 92vw);
+    }
+    video{
+        width: 100%;
+        display: block;
+        border-radius: 10px;
+        background-color: #000;
+    }
+    .closeVideo{
+        position: absolute;
+        top: -45px;
+        right: 0;
+        background: none;
+        border: none;
+        color: #fff;
+        font-size: 36px;
+        cursor: pointer;
+    }
+    .closeVideo:hover{
+        color: #f35525;
+    }
+}
+.videoModal.open{
+    display: flex;
+}
+.videoContainer a{
+    cursor: pointer;
+}
+
+/* ----- Thank you message (toast) after sending the form ----- */
+.toast{
+    position: fixed;
+    bottom: 30px;
+    left: 50%;
+    transform: translate(-50%, 30px);
+    max-width: 90%;
+    padding: 15px 25px;
+    background-color: #1e1e1e;
+    color: #fff;
+    border-left: 5px solid #f35525;
+    border-radius: 8px;
+    font-family: var(--mainfont);
+    box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.3);
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.5s;
+    z-index: 200;
+}
+.toast.show{
+    opacity: 1;
+    transform: translate(-50%, 0);
 }
